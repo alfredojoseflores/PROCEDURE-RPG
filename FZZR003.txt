@@ -1,0 +1,29 @@
+
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .:
+      * FUNCION . . .: EJEMPLO  PROTOTIPO DEL PROCEDIMIENTO
+      *
+      *-------------------------------------------------------------
+      * This procedure performs a function on the 3 numeric values
+      * passed to it as value parameters.
+      **
+      *This illustrates how a procedure interface is specified for a
+      * procedure and how values are returned from a procedure.
+      *-------------------------------------------------------------
+      *  CODIFICACION PROCEDURE  DONDE
+      *           P   B = comienzo  de  procedure
+      *           P   E = final     de  procedure
+      *           PR    = procedimiento
+      *           PI    = Interface de procedimiento
+     P Function        B
+     DFunction         PI            10I 0
+     D Term1                          5I 0 VALUE
+     D Term2                          5I 0 VALUE
+     D Term3                          5I 0 VALUE
+      *
+     D RESULT          S             10I 0
+     C                   Eval      RESULT   = TERM1*2 + TERM2*3 +TERM3*4
+     C                   RETURN    RESULT
+     P                 E

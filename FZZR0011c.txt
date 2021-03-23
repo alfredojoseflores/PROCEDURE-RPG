@@ -1,0 +1,40 @@
+      *
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .: FZZR0011C
+      * FUNCION . . .: EJEMPLO  PROCEDIMIENTO
+      * ELABORADO POR: ALFREDO FLORES
+      * FECHA . . . .:
+      * SOLICITUD . .:
+      *
+      * NOTA : EN  HOJA H EL NOMAIN INDICA QUE NO TIENE UN PROCEDIMIENTO
+      *            PRINCIPAL
+      *
+      * B --> indica Comienzo de procedimiento
+      * PI--> como tiene 15 2  indica  envia lo indicado en RETURN W_TASA
+      *       se llama funcion         porque tiene el  15 2  en  PI
+      *       se llama Procedimiento   porque no tiene el  15 2  en  PI
+      *       las  variables  despues  de  PI son los parametros
+      * P --> y  la   E  indica  fin  de  procedimiento
+      *
+     HDECEDIT('0,') DATEDIT(*DMY/) NOMAIN
+     D/COPY QPROCEDIMI,FZZR0011A)
+     PCALCULATASA      B                   EXPORT
+     DCALCULATASA      PI            15  2
+     D IMPORTE                       15  2 CONST
+     D PAIS                           3    CONST
+      *
+     DW_TASA           S             15  2
+      *
+     C                   SELECT
+     C                   When      Pais = 'ESP'
+     C                   EVAL      W_TASA= IMPORTE / 12
+     C                   Other
+     C                   EVAL      W_TASA= IMPORTE / 10
+     C                   ENDSL
+     c     IMPORTE       dsply
+     c     W_TASA        dsply
+     C                   RETURN    W_TASA
+     C                   EVAL      *INLR= *ON
+     PCALCULATASA      E

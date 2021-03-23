@@ -1,0 +1,27 @@
+
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .:
+      * FUNCION . . .: EJEMPLO  COMO LLAMAR   PROCEDIMIENTO
+      *
+      * CRTBNDRPG PGM(AJFLORES/FZZRPROCEA) SRCFILE(AJFLORES/QPROCEDIMI)
+      *                                    DFTACTGRP(*NO)
+      *
+      *-------------------------------------------------------------
+      *-------------------------------------------------------------
+     FMSTEMP    If   E           K DISK
+     D TERM1           S              5S 0
+     D TYPE            S              8A
+      *
+      *
+      *
+      *
+     c     *loval        setll     mstemp
+     c                   read      mstemp                                 10
+     C                   DOW       *in10=*off
+     C                   EVAL      TYPE=SUBPROC2(ETYPE)
+     c                   read      mstemp                                 10
+     C                   ENDDO
+     C                   EVAL      *INLR=*ON
+      *

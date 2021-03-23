@@ -1,0 +1,29 @@
+
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .:
+      * FUNCION . . .: EJEMPLO  COMO LLAMAR   PROCEDIMIENTO
+      *
+      * CRTBNDRPG PGM(AJFLORES/FZZRPROCEA) SRCFILE(AJFLORES/QPROCEDIMI)
+      *                                    DFTACTGRP(*NO)
+      *
+      *-------------------------------------------------------------
+      *-------------------------------------------------------------
+     FMSTEMP    If   E           K DISK
+     D/COPY AJFLORES/QPROCEDIMI,FZZRPRODE1
+     D VALIMP          S             10  0
+     D RESPORC         S             10  0
+      *
+      *
+      *
+      *
+     c     *loval        setll     mstemp
+     c                   read      mstemp                                 10
+     C                   DOW       *in10=*off
+     C                   EVAL      VALIMP    = 20
+     C                   CALLP     CALCDESC(VALIMP:RESPORC)
+     c                   read      mstemp                                 10
+     C                   ENDDO
+     C                   EVAL      *INLR=*ON
+      *

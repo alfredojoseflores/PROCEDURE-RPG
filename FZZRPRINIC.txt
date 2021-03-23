@@ -1,0 +1,82 @@
+
+      * NOMBRE MÓDULO: EMPRPT
+      * ARCHIV RELAC: MSTEMP (ARCHIVO FÍSICO)
+      * QSYSPRT(ARCHIVO DE IMPRESORA)
+      * DESCRIPCIÓN: Este programa imprime información de empleados
+      * del archivo MSTEMP.
+      *
+      * COMPILARLO ASI:
+      * CRTBNDRPG PGM(AJFLORES/FZZRPRINIC) SRCFILE(AJFLORES/QPROCEDIMI)
+      *                                    DFTACTGRP(*NO)
+      *
+      * EN EL PROTOTIPO:
+      * EMPTYPE--> RECIBE DEL  PROCEDURE EL  VALOR
+      * ETYPE  --> ENVIA  EL  VALOR  A  PROCEDURE  RECIBIENDOLO CODE
+      *
+      *****************************************************************
+      * DESCRIPCIÓN: Estas son las DDS del archivo físico MSTEMP. *
+      * Contiene un formato de registro llamado EMPREC. *
+      * Este archivo contiene un registro para cada *
+      * de la empresa. *
+      *****************************************************************
+      *
+      *  R EMPREC
+      *   ENUM  5  0 TEXT('NÚMERO DE EMPLEADO')
+      *   ENAME 20   TEXT('NOMBRE DE EMPLEADO')
+      *   ETYPE 1    TEXT('TIPO DE EMPLEADO')
+      *   EDEPT 3  0 TEXT('DEPARTAMENTO DE EMPLEADO')
+      *   ENHRS 3  1 TEXT('HRS SEMAN. NORMALES DE EMPLEADO')
+      *  K ENUM
+      *
+      *
+      * PROGRAMA  . .: FZZR
+      * FUNCION . . .: EJEMPLO  PROTOTIPO DEL PROCEDIMIENTO
+      *
+     FMSTEMP    IP   E           K DISK
+     FQSYSPRT   O    F   80        PRINTER OFLIND(*INOF)
+     D TYPE            S              8A
+      *
+      * PROTOTIPO
+     D EMPTYPE         PR             8A
+     D ETYPE                          1A
+      *
+     IEMPREC        01
+     C                   EVAL      TYPE = EMPTYPE(ETYPE)
+     OQSYSPRT   H    1P                     2  6
+     O         OR    OF
+     O                                           50 'INFORMACIÓN DE EMPLEADO'
+     O          H    1P                     1
+     O         OR    OF
+     O                                           12 'NOMBRE'
+     O                                           34 'NÚM. SERIE'
+     O                                           45 'DEPT'
+     O                                           56 'TIPO'
+     O          D    01                     1
+     O                       ENAME               20
+     O                       ENUM                32
+     O                       EDEPT               45
+     O                       TYPE                60
+      *
+      * El procedimiento EMPTYPE devuelve una serie que representa
+      * el tipo de empleado indicado por el parámetro CODE.
+      *
+      *
+      * B --> indica Comienzo de procedimiento
+      * PI--> como tiene 8 A   indica  envia lo indicado en RETURN
+      *       las  variables  despues  de  PI son los parametros
+      *       EN  ESTE  CASO CODE LO RECIBE  DEL PRINCIPAL
+      * P --> y  la   E  indica  fin  de  procedimiento
+      *
+     P EMPTYPE         B
+     D EMPTYPE         PI             8A
+     D CODE                           1A
+      *
+     C                   SELECT
+     C                   When      CODE = 'M'
+     C                   RETURN    'GESTOR'
+     C                   When      CODE = 'R'
+     C                   RETURN    'NORMAL'
+     C                   Other
+     C                   RETURN    'DESCONOCIDO'
+     C                   ENDSL
+     PEMPTYPE          E

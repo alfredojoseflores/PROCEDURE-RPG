@@ -1,0 +1,19 @@
+
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .:
+      * FUNCION . . .:
+      *
+      * CRTBNDRPG PGM(AJFLORES/FZZRPROCEA) SRCFILE(AJFLORES/QPROCEDIMI)
+      *                                    DFTACTGRP(*NO)
+      *
+      *-------------------------------------------------------------
+      *-------------------------------------------------------------
+      *
+      * PROTOTIPO
+     D calcdesc        PR
+     D PImporte                      10  0 const
+     D PPORCEN                       10  0
+      *
+      *

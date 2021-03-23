@@ -1,0 +1,32 @@
+
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .:
+      * FUNCION . . .: EJEMPLO  COMO LLAMAR   PROCEDIMIENTO
+      *
+      * CRTBNDRPG PGM(AJFLORES/FZZRPROCEA) SRCFILE(AJFLORES/QPROCEDIMI)
+      *                                    DFTACTGRP(*NO)
+      *
+      *-------------------------------------------------------------
+      *-------------------------------------------------------------
+      *
+     H NOMAIN
+      * PROTOTIPO
+     D SUBPROC2        PR             8A
+     D ETYPE                          1A
+      *
+      *
+     P SUBPROC2        B                   EXPORT
+     D SUBPROC2        PI             8A
+     D CODE                           1A
+      *
+     C                   SELECT
+     C                   When      CODE = 'M'
+     C                   RETURN    'GESTOR'
+     C                   When      CODE = 'R'
+     C                   RETURN    'NORMAL'
+     C                   Other
+     C                   RETURN    'DESCONOCIDO'
+     C                   ENDSL
+     PSUBPROC2         E

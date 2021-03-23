@@ -1,0 +1,31 @@
+
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .:
+      * FUNCION . . .: EJEMPLO  PROTOTIPO DEL PROCEDIMIENTO
+      *
+      * Prototype for procedure FUNCTION
+     H  NOMAIN
+     DFUNDMYAISO       PR             8P 0
+     D                                6P 0
+      *Después definimos el comienzo del procedimiento (función).
+     PFUNDMYASIO       B
+      *-------------------------------------------------------------
+      *    la interfaz de entrada del procedimiento, aquí definimos los pará
+     DFUNDMYAISO       PI             8P 0
+     DEFECHA6                         6P 0
+      *This illustrates how a procedure interface is specified for a
+      *aquí defino la variable donde voy a guardar el valor que devuelvo en
+     DFECHA8           S              8P 0
+      *  CODIFICACION PROCEDURE  DONDE
+      *Código en FREE RPG, si alguien esta en una versión que permite usarlo
+      *           P   E = final     de  procedure
+      *           PR    = procedimiento
+      /FREE
+       FECHA8=%DEC('20'+%SUBST(%EDITC(eFECHA6:'X'):5:2)+
+                      %SUBST(%EDITC(eFECHA6:'X'):3:2)+
+                      %SUBST(%EDITC(eFECHA6:'X'):1:2):8:0);
+       RETURN FECHA8;
+      /END-FREE
+     P                 E

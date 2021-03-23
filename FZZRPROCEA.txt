@@ -1,0 +1,58 @@
+
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .:
+      * FUNCION . . .: EJEMPLO  COMO LLAMAR   PROCEDIMIENTO
+      *
+      * CRTBNDRPG PGM(AJFLORES/FZZRPROCEA) SRCFILE(AJFLORES/QPROCEDIMI)
+      *                                    DFTACTGRP(*NO)
+      *
+      *-------------------------------------------------------------
+      *-------------------------------------------------------------
+     FMSTEMP    If   E           K DISK
+     D TERM1           S              5S 0
+     D TYPE            S              8A
+      * PROTOTIPO
+     D SUBPROC1        PR
+     D ENHRS                          3P 1
+      * OTRA FORMA  ES  USAR  LIKE
+     D*WENHRS                              LIKE(ENHRS)
+      *
+      *
+      * PROTOTIPO
+     D SUBPROC2        PR             8A
+     D ETYPE                          1A
+      *
+     c     *loval        setll     mstemp
+     c                   read      mstemp                                 10
+     C                   DOW       *in10=*off
+     C                   CALLP     SUBPROC1(ENHRS)
+     C                   EVAL      TYPE = SUBPROC2(ETYPE)
+     c                   read      mstemp                                 10
+     C                   ENDDO
+     C                   EVAL      *INLR=*ON
+      *
+     P SUBPROC1        B
+     D SUBPROC1        PI
+     D ENHRS                          3P 1
+      * OTRA FORMA  ES  USAR  LIKE Y EN 3*WENHRS
+     D*WENHRS                              LIKE(ENHRS)
+      *
+     C                   Z-ADD     0             RESULT            3 1
+     C                   Eval      RESULT   = 3*ENHRS
+     PSUBPROC1         E
+      *
+     P SUBPROC2        B
+     D SUBPROC2        PI             8A
+     D CODE                           1A
+      *
+     C                   SELECT
+     C                   When      CODE = 'M'
+     C                   RETURN    'GESTOR'
+     C                   When      CODE = 'R'
+     C                   RETURN    'NORMAL'
+     C                   Other
+     C                   RETURN    'DESCONOCIDO'
+     C                   ENDSL
+     PSUBPROC2         E

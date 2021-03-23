@@ -1,0 +1,23 @@
+     ********** SE  COMPILA  CON 14
+     H DFTACTGRP(*no)
+     D ISODATE         S             10A
+     D Dayname         S             10A
+     C     *ENTRY        PLIST
+     C                   PARM                    ISODATE
+     C                   PARM                    DayName
+      /FREE
+         EXEC SQL  SET OPTION COMMIT = *NONE;
+         DayName = GetDaynamePR(ISODATE);
+          DSPLY DayName;
+         *INLR = *ON;
+      /END-FREE
+     P GetDaynamePR    B
+     D GetDaynamePR    PI            10A
+     D    ISODATE1                   10A
+     D    DayName1     S             10A
+      /FREE
+         EXEC SQL
+          VALUES DayName(:ISODATE1) into: DayName1;
+          return DayName1;
+      /END-FREE
+     P GetDaynamePR    E

@@ -1,0 +1,19 @@
+      *****SE COMPILA  CON  15 MODULO
+      * LLAMA  AL  PROCEDIMIENTO GETDAYMODE
+      * SE  CREA GETCRTRPG  PARA  LLAMAR  A  LOS  MODULOS :
+      *                                           GETRPG  Y GETDAYMODE
+      *ASI :
+      * CRTPGM PGM(AJFLORES/GETCRTRPG) MODULE(AJFLORES/GETRPG AJFLORES/GETDAYMODE)
+     H
+     D DAY             S             10A
+     D ISO             S             10A
+      *
+      *DECLARACION  DE  PROTOTIPO
+     D GETDAYMODEPR    PR            10A
+     D                               10A
+      /FREE
+         ISO = '2019-08-01'                 ;
+         DAY = GETDAYMODEPR(ISO);
+          DSPLY ('GETRPG ----->' + DAY );
+         *INLR = *ON;
+      /END-FREE

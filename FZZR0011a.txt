@@ -1,0 +1,16 @@
+      *
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .: FZZR0011A
+      * FUNCION . . .: EJEMPLO  PROTOTIPO DEL PROCEDIMIENTO
+      * ELABORADO POR: ALFREDO FLORES
+      * FECHA . . . .:
+      * SOLICITUD . .:
+      *
+      * NOTA         : SE  USA PARA  PUEDA VER LAS  VARIABLES EL
+      *                PROCEDIMINETO  FZZR0011B
+      *
+     DCALCULATASA      PR            15  2
+     D VARIMPORTE                    15  2 CONST
+     D VARPAIS                        3    CONST

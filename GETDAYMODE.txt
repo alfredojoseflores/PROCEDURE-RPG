@@ -1,0 +1,28 @@
+      *****SE COMPILA  CON  15 MODULO POR QUE  ES  EXPORT
+      * ES  LLAMAD  DESDE  GETRPG
+      * Y  SE  CREA GETCRTRPG CON  CRTRPG UNIENO  MODULO :
+      *                         GETDAYMODE Y  GETRPG
+      *ASI :
+      * CRTPGM PGM(AJFLORES/GETCRTRPG) MODULE(AJFLORES/GETRPG AJFLORES/GETDAYMODE)
+     H*****SE  QUITA  ESTO PORQUE  ES MODULO DFTACTGRP(*no)
+     D ISODATE         S             10A
+     D Dayname         S             10A
+     C     *ENTRY        PLIST
+     C                   PARM                    ISODATE
+     C                   PARM                    DayName
+      /FREE
+         EXEC SQL  SET OPTION COMMIT = *NONE;
+         DayName = GETDAYMODEPR(ISODATE);
+          DSPLY DayName;
+         *INLR = *ON;
+      /END-FREE
+     P GetDaymodePR    B                   EXPORT
+     D GetdaymodePR    PI            10A
+     D    ISODATE1                   10A
+     D    DayName1     S             10A
+      /FREE
+         EXEC SQL
+          VALUES DayName(:ISODATE1) into: DayName1;
+          return DayName1;
+      /END-FREE
+     P GETDAYMODEPR    E

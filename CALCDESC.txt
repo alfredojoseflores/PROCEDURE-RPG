@@ -1,0 +1,38 @@
+
+      * EMPRESA
+      * SISTEMA . . .:
+      * APLICACION. .:
+      * PROGRAMA  . .:
+      * FUNCION . . .: EJEMPLO  COMO LLAMAR   PROCEDIMIENTO
+      *
+      * CRTBNDRPG PGM(AJFLORES/FZZRPROCEA) SRCFILE(AJFLORES/QPROCEDIMI)
+      *                                    DFTACTGRP(*NO)
+      *
+      *-------------------------------------------------------------
+      *-------------------------------------------------------------
+      *
+      *
+      *
+      * PROTOTIPO
+     D calcdesc        PR
+     D PImporte                      10  0 CONST
+     D PPORCEN                       10  0
+      *
+      *
+     P CALCDESC        B
+     D CALCDESC        PI
+     D PIMPORTE                      10  0 CONST
+     D PPORCEN                       10  0
+      *
+      *
+     C                   SELECT
+     C                   When      PIMPORTE > 10
+     C                   EVAL      PPORCEN   = 5
+     C                   When      PIMPORTE > 20
+     C                   EVAL      PPORCEN   = 10
+     C                   Other
+     C                   EVAL      PPORCEN   = 15
+     C                   ENDSL
+     C                   RETURN
+     C                   eval      *inlr =*on
+     P CALCDESC        E

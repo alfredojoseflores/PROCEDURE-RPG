@@ -1,0 +1,14 @@
+      *****************************************************************
+      * DESCRIPCIÓN: ESTAS SON LAS DDS DEL ARCHIVO FíSICO MSTEMP. *
+      * CONTIENE UN FORMATO DE REGISTRO LLAMADO EMPREC. *
+      * ESTE ARCHIVO CONTIENE UN REGISTRO PARA CADA *
+      * DE LA EMPRESA. *
+      *****************************************************************
+      *
+     A          R EMPREC
+     A            ENUM           5S 0       COLHDG('NUMERO DE EMPLEADO')
+     A            ENAME         20A         COLHDG('NOMBRE DE EMPLEADO')
+     A            ETYPE          1A         COLHDG('TIPO DE EMPLEADO')
+     A            EDEPT          3S 0       COLHDG('DEPARTAMENTO' 'DE EMPLEADO')
+     A            ENHRS          3S 1       COLHDG('HRS SEMAN' 'NORMALES EMPL.')
+     A          K ENUM
